@@ -1,4 +1,5 @@
 import { Editor } from "./editor";
+import Toolbar from "./toolbar";
 
 
 type Props = {
@@ -10,6 +11,7 @@ export default async function Page({ params }: Props) {
 
     return(
         <div className="min-h-screen bg-[#FAFBFD]">
+            <Toolbar />
             <Editor />
         </div>
     )
