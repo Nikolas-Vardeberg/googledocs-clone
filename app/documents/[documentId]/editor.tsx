@@ -16,6 +16,7 @@ import Underline from "@tiptap/extension-underline";
 import FontFamily from "@tiptap/extension-font-family";
 import TextStyle from "@tiptap/extension-text-style";
 import Link from "@tiptap/extension-link"
+import TextAlgin from "@tiptap/extension-text-align"
 
 import { useEditorStore } from '@/store/use-editor-store'
 
@@ -76,6 +77,9 @@ export const Editor = () => {
                 openOnClick: false,
                 autolink: true,
                 defaultProtocol: "https",
+            }),
+            TextAlgin.configure({
+                types: ["heading", "paragraph"],
             }),
         ],
         content: `<h1>Hello, world!</h1>`,
