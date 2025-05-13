@@ -7,6 +7,8 @@ import TaskList from "@tiptap/extension-task-list"
 import Table from "@tiptap/extension-table"
 import TableCell from "@tiptap/extension-table-cell"
 import TableHeader from "@tiptap/extension-table-header"
+import { Color } from "@tiptap/extension-color"
+import Hightlight from "@tiptap/extension-highlight"
 import TableRow from "@tiptap/extension-table-row"
 import Image from "@tiptap/extension-image"
 import ImageResize from "tiptap-extension-resize-image"
@@ -64,7 +66,11 @@ export const Editor = () => {
             ImageResize,
             Underline,
             FontFamily,
-            TextStyle
+            TextStyle,
+            Color,
+            Hightlight.configure({
+                multicolor: true,
+            })
         ],
         content: `<h1>Hello, world!</h1>`,
     });
