@@ -20,6 +20,7 @@ import TextAlgin from "@tiptap/extension-text-align"
 
 import { FontSizeExtension } from '@/extensions/font-size'
 import { useEditorStore } from '@/store/use-editor-store'
+import { LineHeightExtension } from '@/extensions/line-height'
 
 export const Editor = () => {
     const { setEditor } = useEditorStore();
@@ -82,7 +83,11 @@ export const Editor = () => {
             TextAlgin.configure({
                 types: ["heading", "paragraph"],
             }),
-            FontSizeExtension
+            FontSizeExtension,
+            LineHeightExtension.configure({
+                types: ["heading", "paragraph"],
+                defaultLineHeight: "normal"
+            }),
         ],
         content: `<h1>Hello, world!</h1>`,
     });
