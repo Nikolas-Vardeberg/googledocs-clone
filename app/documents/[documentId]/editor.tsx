@@ -18,6 +18,7 @@ import TextStyle from "@tiptap/extension-text-style";
 import Link from "@tiptap/extension-link"
 import TextAlgin from "@tiptap/extension-text-align"
 
+import { FontSizeExtension } from '@/extensions/font-size'
 import { useEditorStore } from '@/store/use-editor-store'
 
 export const Editor = () => {
@@ -81,6 +82,7 @@ export const Editor = () => {
             TextAlgin.configure({
                 types: ["heading", "paragraph"],
             }),
+            FontSizeExtension
         ],
         content: `<h1>Hello, world!</h1>`,
     });
