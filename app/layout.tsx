@@ -20,16 +20,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={geist.className}>
-      <body
-        className={`antialiased`}
-      >
-        <NuqsAdapter>
-          <ConvexClientProvider>
-            {children}
-          </ConvexClientProvider>
-        </NuqsAdapter>
-      </body>
-    </html>
+      <html lang="en" className={geist.className}>
+        <body
+          className={`antialiased`}
+          >
+          <NuqsAdapter>
+            <ConvexClientProvider>
+              {children}
+            </ConvexClientProvider>
+          </NuqsAdapter>
+        </body>
+      </html>
   );
 }
