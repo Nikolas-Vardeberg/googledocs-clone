@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from 'next/font/google'
 import "./globals.css";
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
 
 const geist = Geist({
   subsets: ['latin'],
@@ -22,7 +23,9 @@ export default function RootLayout({
       <body
         className={`antialiased`}
       >
-        {children}
+        <NuqsAdapter>
+          {children}
+        </NuqsAdapter>
       </body>
     </html>
   );
