@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from 'next/font/google'
 import "./globals.css";
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
+import { ConvexClientProvider } from "@/components/convex-client-provider";
 
 const geist = Geist({
   subsets: ['latin'],
@@ -24,7 +25,9 @@ export default function RootLayout({
         className={`antialiased`}
       >
         <NuqsAdapter>
-          {children}
+          <ConvexClientProvider>
+            {children}
+          </ConvexClientProvider>
         </NuqsAdapter>
       </body>
     </html>
