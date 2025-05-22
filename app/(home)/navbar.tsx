@@ -1,6 +1,6 @@
 import Link from "next/link";
 import SearchInput from "./search-input";
-import { UserButton } from "@clerk/clerk-react";
+import { OrganizationSwitcher, UserButton } from "@clerk/clerk-react";
 
 export default function Navbar() {
     return(
@@ -12,7 +12,15 @@ export default function Navbar() {
                 <h3 className="text-xl">Docs</h3>
             </div>
             <SearchInput />
-            <UserButton />
+            <div className="flex gap-3 items-center pl-6">
+                <OrganizationSwitcher
+                    afterSelectPersonalUrl="/"
+                    afterSelectOrganizationUrl="/"
+                    afterCreateOrganizationUrl="/"
+                    afterLeaveOrganizationUrl="/"
+                />
+                <UserButton />
+            </div>
         </nav>
     )
 }

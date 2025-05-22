@@ -4,11 +4,8 @@ import { RemoveDialog } from "@/components/remove-dialog";
 import { RenameDialog } from "@/components/rename-dialog";
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel"
-import { useMutation } from "convex/react";
 import { ExternalLinkIcon, FilePenIcon, MoreVertical, TrashIcon } from "lucide-react"
-import { useState } from "react";
 
 interface DocumentMenuProps {
    documentId: Id<"documents">;
@@ -26,7 +23,7 @@ export const DocumentMenu = ({ documentId, onNewTab, title }: DocumentMenuProps)
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-                <RenameDialog documentId={documentId}>
+                <RenameDialog documentId={documentId} initialTitle={title}>
                     <DropdownMenuItem 
                         onSelect={(e) => e.preventDefault()}
                         onClick={(e) => e.stopPropagation()}
