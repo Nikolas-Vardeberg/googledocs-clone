@@ -17,13 +17,15 @@ import FontFamily from "@tiptap/extension-font-family";
 import TextStyle from "@tiptap/extension-text-style";
 import Link from "@tiptap/extension-link"
 import TextAlgin from "@tiptap/extension-text-align"
-
+import { useLiveblocksExtension, FloatingToolbar } from "@liveblocks/react-tiptap";
 import { FontSizeExtension } from '@/extensions/font-size'
 import { useEditorStore } from '@/store/use-editor-store'
 import { LineHeightExtension } from '@/extensions/line-height'
 import { Ruler } from './ruler'
+import { Threads } from './threads'
 
 export const Editor = () => {
+    const liveblocks = useLiveblocksExtension();
     const { setEditor } = useEditorStore();
     
     const editor = useEditor({
@@ -90,6 +92,10 @@ export const Editor = () => {
                 types: ["heading", "paragraph"],
                 defaultLineHeight: "normal"
             }),
+            liveblocks,
+            StarterKit.configure({
+                history: false,
+            }),
         ],
         content: `<h1>Hello, world!</h1>`,
     });
@@ -99,6 +105,7 @@ export const Editor = () => {
             <Ruler />
             <div className='min-w-max flex justify-center w-[816px] py-4 print:py-0 mx-auto print:w-full print:min-w-0'>
                 <EditorContent editor={editor} />
+                <Threads editor={editor} />
             </div>
         </div>
     )
